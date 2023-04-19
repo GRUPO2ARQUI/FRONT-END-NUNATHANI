@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .form-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+      padding: 20px; /* Espacio alrededor del contenido */
+      border: 1px solid #446d96; /* Borde sólido de 1px de ancho en color negro */
+
+    }
+
+    .cancel-button {
+      margin-left: 55px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+
+    <form [formGroup]="form" (submit)="aceptar()">
+      <h1>Ingresar Datos </h1>
+
+      <mat-form-field class="example-full-width ">
+        <mat-label>Código</mat-label>
+        <input matInput placeholder="Código" formControlName="id" />
+      </mat-form-field>
+
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Tipo de Especialidad</mat-label>
+        <input matInput placeholder="Nombre" formControlName="tipoEspecialidad" />
+      </mat-form-field>
+      <br>
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripción </mat-label>
+        <input matInput placeholder="descripción" formControlName="descripcionEspecialidad" />
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Centro de Estudio</mat-label>
+        <mat-select placeholder="Elija Centro de Estudio" formControlName="centroEspecialidad">
+          <mat-option value="UNMSM">UNMSM</mat-option>
+          <mat-option value="PUCP">PUCP</mat-option>
+          <mat-option value="IPCC">IPCC</mat-option>
+          <mat-option value="UPCH">UPCH</mat-option>
+          <mat-option value="UPC">UPC</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+
+
+      <br>
+      <button mat-button color="primary">Aceptar</button>
+      <button mat-button color="warn" class="cancel-button" routerLink="/especialidad">Cancelar</button>
+      <br>
+      <p>{{ mensaje }}</p>
+    </form>
+  </div>
+</body>
+
+</html>
+
