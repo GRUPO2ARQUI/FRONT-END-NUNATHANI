@@ -25,33 +25,8 @@ module.exports = function () {
         centroEspecialidad:"UPCH",
         descripcionEspecialidad:"se centra en la aplicación de la psicología a las empresas y organizaciones, incluyendo la selección y capacitación de personal",
       }
-    ],
-    Psicologo:[
-      {
-        id: 1,
-        nombre: "Juan Pérez",
-        correoElectronico: "juan.perez@ejemplo.com",
-        Especialidad:
-        {
-          id:1,
-          tipoEspecialidad: "Psicología Clínica",
-          centroEspecialidad: "UNMSM",
-        }
-      },
-
-      {
-        id: 2,
-        nombre: "María García",
-        correoElectronico: "maria.garcia@ejemplo.com",
-        Especialidad:
-        {
-          id:2,
-          tipoEspecialidad: "Psicología Social",
-          centroEspecialidad: "PUCP",
-        }
-
-      },
     ]
+   
   }
   return data
 }
