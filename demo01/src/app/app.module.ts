@@ -16,12 +16,19 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 
+import { DisponibilidadComponent } from './component/disponibilidad/disponibilidad.component';
+import { DisponibilidadListarComponent } from './component/disponibilidad/disponibilidad-listar/disponibilidad-listar.component';
+import { DisponibilidadInsertarComponent } from './component/disponibilidad/disponibilidad-insertar/disponibilidad-insertar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     EspecialidadListarComponent,
     EspecialidadComponent,
-    EspecialidadInsertarComponent
+    EspecialidadInsertarComponent,
+    DisponibilidadComponent,
+    DisponibilidadListarComponent,
+    DisponibilidadInsertarComponent
   ],
   imports: [
     BrowserModule,
