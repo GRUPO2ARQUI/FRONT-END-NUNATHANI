@@ -1,78 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form [formGroup]="form" (submit)="aceptar()">
+      <p class="mensaje">Ingrese los datos</p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Código</mat-label>
+        <input matInput placeholder="No" formControlName="id" />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Inicio turno</mat-label>
+        <input
+          matInput
+          placeholder="Inicio del turno"
+          formControlName="inicio_turno"
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label>Fin turno</mat-label>
+        <input
+          matInput
+          placeholder="Fin del turno"
+          formControlName="fin_turno"
+        />
+      </mat-form-field>
 
-  <style>
-    /* Estilo para centrar el formulario */
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    form {
-      width: 80%;
-      max-width: 400px;
-      padding: 16px;
-      border: 2px solid #c28325;
-      border-radius: 4px;
-    }
-    .example-full-width,
-    .example-full-width mat-form-field {
-      width: 100%;
-    }
-    button {
-      margin-top: 16px;
-    }
-    .mensaje {
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      margin-top: -50px;
-      margin-bottom: 16px;
-    }
-  </style>
-</head>
-<body>
+      <br />
+      <!-- Ejemplo de un mat-select con selección múltiple -->
+      <mat-form-field appearance="fill">
+        <mat-label>Dias</mat-label>
+        <mat-select
+          placeholder="Elija día"
+          formControlName="dias_laborales"
+          multiple>
+          <mat-option value="Lunes">Lunes</mat-option>
+          <mat-option value="Martes">Martes</mat-option>
+          <mat-option value="Miercoles">Miércoles</mat-option>
+          <mat-option value="Jueves">Jueves</mat-option>
+          <mat-option value="Viernes">Viernes</mat-option>
+          <mat-option value="Sabado">Sábado</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-  <form [formGroup]="form" (submit)="aceptar()">
-    <p class="mensaje">Ingrese los datos</p>
-    <mat-form-field class="example-full-width">
-      <mat-label>Código</mat-label>
-      <input matInput placeholder="No" formControlName="id" />
-    </mat-form-field>
-    <br>
-    <mat-form-field class="example-full-width">
-      <mat-label>Inicio turno</mat-label>
-      <input matInput placeholder="Inicio del turno" formControlName="inicio_turno" />
-    </mat-form-field>
-    <br>
-    <mat-form-field class="example-full-width">
-      <mat-label>Fin turno</mat-label>
-      <input matInput placeholder="Fin del turno" formControlName="fin_turno" />
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Dia laborable</mat-label>
-      <input
-        matInput
-        [matDatepicker]="picker"
-        placeholder="Choose a date"
-        formControlName="dias_laborales"
-        [max]="maxFecha"
-      />
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <br>
-    <button mat-button color="primary">Aceptar</button>
-    <button mat-button color="warn" routerLink="/disponibilidad">Cancelar</button>
-    <br>
-    <p>{{ mensaje }}</p>
-  </form>
-</body>
+      <br />
+      <div style="text-align: center">
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/disponibilidad">
+          Cancelar
+        </button>
+        <br />
+      </div>
+      <p>{{ mensaje }}</p>
+    </form>
+  </body>
 </html>
