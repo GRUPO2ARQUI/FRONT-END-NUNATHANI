@@ -2,23 +2,28 @@ import { DisponibilidadService } from 'src/app/service/disponibilidad.service';
 import { Disponibilidad } from 'src/app/model/disponibilidad';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import * as moment from 'moment';
-import { Router } from '@angular/router';
-import { DisponibilidadComponent } from '../disponibilidad.component';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-disponibilidad-insertar',
   templateUrl: './disponibilidad-insertar.component.html',
   styleUrls: ['./disponibilidad-insertar.component.css'],
 })
 export class DisponibilidadInsertarComponent implements OnInit {
+  id: number = 0;
+  edicion: boolean = false;
+
   form: FormGroup = new FormGroup({});
   disponibilidad: Disponibilidad = new Disponibilidad();
   mensaje: string = '';
-  maxFecha: Date = moment().add(-1, 'days').toDate(); // Corrección aquí
-
-  constructor(private dS: DisponibilidadService, private router: Router) {}
-
+  //maxFecha: Date = moment().add(-1, 'days').toDate();
+  constructor(private dS: DisponibilidadService, private router: Router, private route: ActivatedRoute) {}
   ngOnInit(): void {
+    this.route.params.subscribe((data: Params) => {
+      this.id = data['id'];
+      this.edicion = data['id'] != null;
+      this.init();
+    });
+
     this.form = new FormGroup({
       id: new FormControl(),
       inicio_turno: new FormControl(),
@@ -26,7 +31,6 @@ export class DisponibilidadInsertarComponent implements OnInit {
       dias_laborales: new FormControl(),
     });
   }
-
   aceptar(): void {
     this.disponibilidad.id = this.form.value['id'];
     this.disponibilidad.inicio_turno = this.form.value['inicio_turno'];
@@ -61,19 +65,37 @@ export class DisponibilidadInsertarComponent implements OnInit {
 
 
     // Corrección en el bloque condicional
-    if (
-      this.form.value['inicio_turno'].length > 0 &&
-      this.form.value['fin_turno'].length > 0
-    ) {
-      this.dS.insert(this.disponibilidad).subscribe((data) => {
+    if ( this.form.value['inicio_turno'].length > 0 && this.form.value['fin_turno'].length > 0) {
+    if (this.edicion) {
+      //guardar lo actualizado
+      this.dS.update(this.disponibilidad).subscribe(() => {
         this.dS.list().subscribe((data) => {
           this.dS.setList(data);
         });
-      });
+      });}
+      else {
+        this.dS.insert(this.disponibilidad).subscribe((data) => {
+          this.dS.list().subscribe((data) => {
+            this.dS.setList(data);
+          });
+        });
+      }
       this.router.navigate(['disponibilidad']);
-    } else {
+    }else {
       this.mensaje = 'Ingrese un horario real!!';
     }
 
+  }
+  init() {
+    if (this.edicion) {
+      this.dS.listId(this.id).subscribe((data) => {
+        this.form = new FormGroup({
+          id: new FormControl(data.id),
+          inicio_turno: new FormControl(data.inicio_turno),
+          fin_turno: new FormControl(data.fin_turno),
+          dias_laborales: new FormControl(data.dias_laborales),
+        });
+      });
+    }
   }
 }
