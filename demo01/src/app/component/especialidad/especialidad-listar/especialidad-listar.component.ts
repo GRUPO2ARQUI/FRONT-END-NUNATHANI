@@ -12,15 +12,22 @@ import { MatTableDataSource} from '@angular/material/table'
 export class EspecialidadListarComponent implements OnInit{
 
   dataSource:MatTableDataSource<Especialidad>=new MatTableDataSource();
-  displayedColumns:string[]=['codigo','tipo','descripcion','centro']
+  displayedColumns:string[]=['codigo','tipo','descripcion','centro','ceditar']
   constructor(private eS:EspecialidadService){
 
   }
  ngOnInit(): void {
   this.eS.list().subscribe(data=>{
     this.dataSource= new MatTableDataSource(data);
-  })
+  });
+   
+  this.eS.getList().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+  });
 
  }
-
+  filtrar(e: any) {
+    this.dataSource.filter = e.target.value.trim();
+  }
+  
 }
