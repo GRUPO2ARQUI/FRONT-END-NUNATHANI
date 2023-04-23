@@ -24,4 +24,10 @@ export class DisponibilidadService {
   setList(listaNueva: Disponibilidad[]) {
     this.listaCambio.next(listaNueva);
   }
+    listId(id: number) {
+    return this.http.get<Disponibilidad>(`${this.url}/${id}`);
+  }
+  update(d: Disponibilidad) {
+    return this.http.put(this.url + '/' + d.id, d);
+  }
 }
