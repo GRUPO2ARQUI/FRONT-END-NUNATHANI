@@ -15,6 +15,17 @@
     <div style="text-align: center;">
       <h1>Lista de Especialidades</h1>
     </div>
+     <div>
+      <button mat-raised-button color="warn" routerLink="/especialidad/especialidadinsertar">
+        Nuevo
+      </button>
+    </div>
+
+    <mat-form-field>
+      <input  matInput (keyup)="filtrar($event)" placeholder="Buscar"/>
+    </mat-form-field>
+    
+    
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
 
@@ -44,7 +55,21 @@
         <th mat-header-cell *matHeaderCellDef> Centro de estudio </th>
         <td mat-cell *matCellDef="let element"> {{element.centroEspecialidad}} </td>
       </ng-container>
-
+      
+       <ng-container matColumnDef="ceditar">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-raised-button
+            color="warn"
+            [routerLink]="['edicion', element.id]"
+          >
+            Actualizar
+          </button>
+        </td>
+      </ng-container>
+      
+  
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
