@@ -15,11 +15,18 @@ export class DisponibilidadListarComponent implements OnInit {
     'Inicio del turno',
     'Fin del turno',
     'Dias laborales',
+    'ceditar',
   ];
   constructor(private dS: DisponibilidadService) {}
   ngOnInit(): void {
     this.dS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
     });
+    this.dS.getList().subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
+    });
+  }
+  filtrar(e: any) {
+    this.dataSource.filter = e.target.value.trim();
   }
 }
