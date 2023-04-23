@@ -23,10 +23,8 @@ const routes: Routes = [
     component: DisponibilidadComponent
     ,
     children: [
-      {
-        path: 'disponibilidadinsertar',
-        component: DisponibilidadInsertarComponent,
-      },
+      {path: 'disponibilidadinsertar',component: DisponibilidadInsertarComponent},
+      {path: 'edicion/:id', component: DisponibilidadInsertarComponent},
     ],
   },
   
