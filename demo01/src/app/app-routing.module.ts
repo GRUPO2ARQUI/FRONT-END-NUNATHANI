@@ -15,6 +15,10 @@ const routes: Routes = [
         path: 'especialidadinsertar',
         component: EspecialidadInsertarComponent,
       },
+      {
+       path: 'edicion/:id',
+       component: EspecialidadInsertarComponent
+      },
     ],
   },
   
