@@ -26,6 +26,14 @@ export class EspecialidadService {
   setList(listaNueva: Especialidad[]) {
     this.listaCambio.next(listaNueva);
   }
+  
+  listId(id: number) {
+    return this.http.get<Especialidad>(`${this.url}/${id}`);
+  }
+  update(E: Especialidad) {
+    return this.http.put(this.url + '/' + E.id, E);
+  }
+  
 
 
 }
