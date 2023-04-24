@@ -20,6 +20,10 @@ import { DisponibilidadComponent } from './component/disponibilidad/disponibilid
 import { DisponibilidadListarComponent } from './component/disponibilidad/disponibilidad-listar/disponibilidad-listar.component';
 import { DisponibilidadInsertarComponent } from './component/disponibilidad/disponibilidad-insertar/disponibilidad-insertar.component';
 
+import { Rutinas_recreativasComponent } from './component/rutinas_recreativas/rutinas_recreativas.component';
+import { Rutinas_recreativasListarComponent } from './component/rutinas_recreativas/rutinas_recreativas-listar/rutinas_recreativas-listar.component';
+import { Rutinas_recreativasInsertarComponent } from './component/rutinas_recreativas/rutinas_recreativas-insertar/rutinas_recreativas-insertar.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,10 @@ import { DisponibilidadInsertarComponent } from './component/disponibilidad/disp
     EspecialidadInsertarComponent,
     DisponibilidadComponent,
     DisponibilidadListarComponent,
-    DisponibilidadInsertarComponent
+    DisponibilidadInsertarComponent,
+    Rutinas_recreativasComponent,
+    Rutinas_recreativasListarComponent,
+    Rutinas_recreativasInsertarComponent,
   ],
   imports: [
     BrowserModule,
