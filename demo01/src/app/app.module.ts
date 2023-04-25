@@ -64,3 +64,4 @@ import { EstadoInsertarComponent } from './component/estado/estado-insertar/esta
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
