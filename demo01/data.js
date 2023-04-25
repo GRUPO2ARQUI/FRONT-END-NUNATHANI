@@ -75,6 +75,25 @@ module.exports = function () {
         descripcion: "La ansiedad se presenta como una sensación de inquietud y temor intenso que puede manifestarse en el cuerpo con sudoración, palpitaciones, tensión muscular y dificultad para respirar. Además, puede generar pensamientos negativos y preocupaciones excesivas acerca del futuro.",
       }
     ],
+    
+    estado: [
+      {
+        id:1,
+        disponibilidad: "Disponible",
+      },
+      {
+        id:2,
+        disponibilidad: "No disponible",
+      },
+      {
+        id:3,
+        disponibilidad: "Disponible",
+      },
+      {
+        id:4,
+        disponibilidad: "Disponible",
+      }
+    ],
    
   }
   return data
