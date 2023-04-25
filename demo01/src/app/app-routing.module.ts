@@ -9,6 +9,9 @@ import { DisponibilidadComponent } from './component/disponibilidad/disponibilid
 import { Rutinas_recreativasInsertarComponent } from './component/rutinas_recreativas/rutinas_recreativas-insertar/rutinas_recreativas-insertar.component';
 import { Rutinas_recreativasComponent } from './component/rutinas_recreativas/rutinas_recreativas.component';
 
+import { EstadoInsertarComponent } from './component/estado/estado-insertar/estado-insertar.component';
+import { EstadoComponent } from './component/estado/estado.component';
+
 
 const routes: Routes = [
   {
@@ -43,6 +46,16 @@ const routes: Routes = [
     children: [
       {path: 'rutinas_recreativasinsertar', component: Rutinas_recreativasInsertarComponent},
       {path: 'edicion/:id', component: Rutinas_recreativasInsertarComponent},
+    ],
+  },
+  
+  {
+    path: 'estado',
+    component: EstadoComponent
+    ,
+    children: [
+      {path: 'estadoinsertar', component: EstadoInsertarComponent},
+      {path: 'edicion/:id', component: EstadoInsertarComponent},
     ],
   },
   
