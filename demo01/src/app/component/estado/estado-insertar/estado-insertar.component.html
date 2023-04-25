@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <form [formGroup]="form" (submit)="aceptar()">
+
+      <p class="mensaje">Ingrese los datos</p>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Código</mat-label>
+        <input matInput placeholder="No" formControlName="id" />
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Disponibilidad</mat-label>
+        <input
+          matInput
+          placeholder="Disponibilidad"
+          formControlName="disponibilidad"
+        />
+      </mat-form-field>
+
+      <br />
+
+      <div style="text-align: center">
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/estado">
+          Cancelar
+        </button>
+        <br />
+      </div>
+
+      <p>{{ mensaje }}</p>
+
+    </form>
+  </body>
+
+</html>
