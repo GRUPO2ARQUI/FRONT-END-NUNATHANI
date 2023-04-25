@@ -24,6 +24,11 @@ import { Rutinas_recreativasComponent } from './component/rutinas_recreativas/ru
 import { Rutinas_recreativasListarComponent } from './component/rutinas_recreativas/rutinas_recreativas-listar/rutinas_recreativas-listar.component';
 import { Rutinas_recreativasInsertarComponent } from './component/rutinas_recreativas/rutinas_recreativas-insertar/rutinas_recreativas-insertar.component'
 
+import { EstadoComponent } from './component/estado/estado.component';
+import { EstadoListarComponent } from './component/estado/estado-listar/estado-listar.component';
+import { EstadoInsertarComponent } from './component/estado/estado-insertar/estado-insertar.component'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +41,9 @@ import { Rutinas_recreativasInsertarComponent } from './component/rutinas_recrea
     Rutinas_recreativasComponent,
     Rutinas_recreativasListarComponent,
     Rutinas_recreativasInsertarComponent,
+    EstadoComponent,
+    EstadoListarComponent,
+    EstadoInsertarComponent,
   ],
   imports: [
     BrowserModule,
