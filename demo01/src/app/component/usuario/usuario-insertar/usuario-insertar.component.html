@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <form [formGroup]="form" (submit)="aceptar()">
+            <h1>Ingresar Datos</h1>
+            <mat-form-field class="example-full-width">
+                <mat-label>Codigo</mat-label>
+                <input matInput placeholder="codigo" formControlName="id">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="nombre" formControlName="nameUsuario">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Apellido</mat-label>
+                <input matInput placeholder="apellido" formControlName="SnameUsuario">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Contraseña</mat-label>
+                <input matInput placeholder="contraseña" formControlName="PassUsuario">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Telefono</mat-label>
+                <input matInput placeholder="telefono" formControlName="telusuario">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">Aceptar</button>
+            <button mat-raised-button color="warn" routerLink="/usuario">Cancelar</button>
+            <p>{{mensaje}}</p>
+
+        </form>
+    </div>
+</body>
+</html>
