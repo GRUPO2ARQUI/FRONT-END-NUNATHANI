@@ -15,6 +15,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { DisponibilidadComponent } from './component/disponibilidad/disponibilidad.component';
 import { DisponibilidadListarComponent } from './component/disponibilidad/disponibilidad-listar/disponibilidad-listar.component';
@@ -27,6 +28,11 @@ import { Rutinas_recreativasInsertarComponent } from './component/rutinas_recrea
 import { EstadoComponent } from './component/estado/estado.component';
 import { EstadoListarComponent } from './component/estado/estado-listar/estado-listar.component';
 import { EstadoInsertarComponent } from './component/estado/estado-insertar/estado-insertar.component'
+
+import { UsuarioComponent } from './component/usuario/usuario.component';
+import { UsuarioListarComponent } from './component/usuario/usuario-listar/usuario-listar.component';
+import { UsuarioInsertarComponent } from './component/usuario/usuario-insertar/usuario-insertar.component';
+import { UsuarioDialogoComponent } from './component/usuario/usuario-listar/usuario-dialogo/usuario-dialogo.component'
 
 
 @NgModule({
@@ -44,6 +50,10 @@ import { EstadoInsertarComponent } from './component/estado/estado-insertar/esta
     EstadoComponent,
     EstadoListarComponent,
     EstadoInsertarComponent,
+    UsuarioComponent,
+    UsuarioListarComponent,
+    UsuarioInsertarComponent,
+    UsuarioDialogoComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +68,7 @@ import { EstadoInsertarComponent } from './component/estado/estado-insertar/esta
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
+    MatDialogModule,
 
   ],
   providers: [],
