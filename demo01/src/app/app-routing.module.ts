@@ -13,6 +13,11 @@ import { EstadoInsertarComponent } from './component/estado/estado-insertar/esta
 import { EstadoComponent } from './component/estado/estado.component';
 
 
+import { UsuarioComponent } from './component/usuario/usuario.component';
+import { UsuarioInsertarComponent } from './component/usuario/usuario-insertar/usuario-insertar.component';
+
+
+
 const routes: Routes = [
   {
     path: 'especialidad',
@@ -56,6 +61,15 @@ const routes: Routes = [
     children: [
       {path: 'estadoinsertar', component: EstadoInsertarComponent},
       {path: 'edicion/:id', component: EstadoInsertarComponent},
+    ],
+  },
+  
+  {
+    path:'usuario',
+    component:UsuarioComponent,
+    children: [
+      {path: 'usuario-insertar', component: UsuarioInsertarComponent},
+      {path: 'edicion/:id', component: UsuarioInsertarComponent},
     ],
   },
   
