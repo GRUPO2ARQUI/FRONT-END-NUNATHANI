@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
@@ -26,11 +26,11 @@ export class UsuarioInsertarComponent implements OnInit{
     });
 
     this.form = new FormGroup({
-      id: new FormControl(),
+      id: new FormControl({value: '', disabled: true}),
       nameUsuario: new FormControl(),
       SnameUsuario: new FormControl(),
       PassUsuario: new FormControl(),
-      telusuario: new FormControl(),
+      telusuario: new FormControl(null, [Validators.pattern('^[0-9]{9}$')]),
     });
   }
   aceptar(): void {
@@ -40,14 +40,14 @@ export class UsuarioInsertarComponent implements OnInit{
     this.usuario.PassUsuario = this.form.value['PassUsuario'];
     this.usuario.telusuario = this.form.value['telusuario'];
 
-    if ( this.form.value['nameUsuario'].length > 0 && this.form.value['SnameUsuario'].length > 0) {
-    if (this.edicion) {
-      this.uS.update(this.usuario).subscribe(() => {
-        this.uS.list().subscribe((data) => {
-          this.uS.setList(data);
+    if (this.form.valid) {
+      if (this.edicion) {
+        this.uS.update(this.usuario).subscribe(() => {
+          this.uS.list().subscribe((data) => {
+            this.uS.setList(data);
+          });
         });
-      });}
-      else {
+      } else {
         this.uS.insert(this.usuario).subscribe((data) => {
           this.uS.list().subscribe((data) => {
             this.uS.setList(data);
@@ -55,23 +55,21 @@ export class UsuarioInsertarComponent implements OnInit{
         });
       }
       this.router.navigate(['usuario']);
-    }else {
-      this.mensaje = 'Ingrese un usuario real!!';
+    } else {
+      this.mensaje = 'Ingrese datos validos!!';
     }
-
   }
   init() {
     if (this.edicion) {
       this.uS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          id: new FormControl(data.id),
+          id: new FormControl({value: data.id, disabled: true}),
           nameUsuario: new FormControl(data.nameUsuario),
           SnameUsuario: new FormControl(data.SnameUsuario),
           PassUsuario: new FormControl(data.PassUsuario),
-          telusuario: new FormControl(data.telusuario),
+          telusuario: new FormControl(data.telusuario, [Validators.pattern('^[0-9]{9}$')]),
         });
       });
     }
   }
-
 }
