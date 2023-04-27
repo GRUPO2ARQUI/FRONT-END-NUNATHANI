@@ -5,6 +5,7 @@ import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { UsuarioDialogoComponent } from './usuario-dialogo/usuario-dialogo.component';
 
+
 @Component({
   selector: 'app-usuario-listar',
   templateUrl: './usuario-listar.component.html',
@@ -12,6 +13,7 @@ import { UsuarioDialogoComponent } from './usuario-dialogo/usuario-dialogo.compo
 })
 export class UsuarioListarComponent implements OnInit {
 
+  lista: Usuario[] = [];
   dataSource: MatTableDataSource<Usuario> = new MatTableDataSource();
   displayedColumns: string[] = ['no', 'nombre', 'apellido', 'contraseña', 'telefono', 'ceditar']
   private idMayor: number = 0;
